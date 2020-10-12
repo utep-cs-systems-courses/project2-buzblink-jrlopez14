@@ -23,22 +23,32 @@ char toggle_green()	/* only toggle green if red is on!  */
 {
   char changed = 0;
   green_on ^= 1;
+  
 
 }
 
 
 void state_advance()		/* alternate between toggling red & green */
 {
-  static short count = 0;
-  dimLights50();
-  if (count == 125) {
-    toggle_green();
-    count = 0;
+  static short state_counter = 0;
+  static short state = 0;
+  if (state_counter == 125){
+    switch(state){
+    case 0: state = 1; break;
+    case 1: state = 2; break;
+    case 2: state = 0; break;
+    default: state = 0;
+    }
+    state_counter = 0;
   }
-  count ++;
-  
+  switch(state){
+  case 0: dimLights50(); green_on = 1; break;
+  case 1: dimLights33(); green_on = 0; break;
+  case 2: dimLights33(); green_on = 1; break;
+  default: green_on = 1;
+  }
+  state_counter++;
 }
-
 
 void dimLights50()
 {
@@ -56,7 +66,7 @@ void dimLights33()
   switch(count%3){
   case 0: red_on = 1; count++; break;
   case 1: red_on = 0; count++; break;
-  default: count++;
+  default: count++; break;
   }
   led_changed = 1;
   led_update();
@@ -68,7 +78,7 @@ void dimLights25()
   switch(count%4){
   case 0: red_on = 1; count++; break;
   case 1: red_on = 0; count++; break;
-  default: count++;
+  default: count++; break;
   }
   led_changed = 1;
   led_update();
