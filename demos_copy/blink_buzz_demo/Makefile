@@ -11,7 +11,7 @@ AS              = msp430-elf-as
 all: siren.elf 
 
 #additional rules for files
-siren.elf: ${COMMON_OBJECTS} blinkMain.o buzzer.o stateMachines.o led.o wdInterruptHandler.o ../lib/libTimer.a
+siren.elf: ${COMMON_OBJECTS} sirenMain.o buzzer.o stateMachines.o led.o wdInterruptHandler.o ../lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load: siren.elf

@@ -5,7 +5,7 @@
 
 void up_state();
 void down_state();
-void buzzer_advance();
+
 
 static short x = 500;
 static short status = 1;
