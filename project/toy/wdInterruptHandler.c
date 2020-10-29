@@ -3,11 +3,9 @@
 
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
-  static short count = 0;
-  if ( (++ count % 25) == 0) buzzer_advance();
-  if (count == 125) {
+  static char blink_count = 0;
+  if (++ blink_count == 125){
     state_advance();
-    count = 0;
+    blink_count = 0;
   }
-  count++;
 }

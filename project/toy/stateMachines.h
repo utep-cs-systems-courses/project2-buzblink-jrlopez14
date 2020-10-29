@@ -2,6 +2,8 @@
 #define stateMachine_included
 
 void state_advance();
-void buzzer_advance();
+void super_state_advance();
+
+extern short state; 
 
 #endif // included
