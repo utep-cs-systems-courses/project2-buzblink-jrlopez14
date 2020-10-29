@@ -9,7 +9,6 @@ This toy should at minimum:
 * implement a state machine to maintain the state of the toy,
 * and use the four buttons on the expansion board (P2.0-3) to transition the state machine.
 
-**Furthermore, at least one of the functions to transition the state machine must be written by you in assembly language.**
 
 ## Getting Started 
 

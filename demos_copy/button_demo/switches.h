@@ -1,8 +1,12 @@
 #ifndef switches_included
 #define switches_included
 
-#define SW1 BIT3		/* switch1 is p1.3 */
-#define SWITCHES SW1		/* only 1 switch on this board */
+#define SW4 BIT0		/* switch1 is p2.0 */
+#define SW3 BIT1                /* switch2 is p2.1 */
+#define SW2 BIT2                /* switch3 is p2.2 */
+#define SW1 BIT3                /* switch4 is p2.3 */
+
+#define SWITCHES SW1 /* 4 Switches on Board */
 
 void switch_init();
 void switch_interrupt_handler();
