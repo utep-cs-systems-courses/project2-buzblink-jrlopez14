@@ -7,9 +7,10 @@
 void main(void) 
 {  
   configureClocks();
-  switch_init();
-  buzzer_init();
+  enableWDTInterrupts();
   led_init();
-
+  buzzer_init();
+  switch_init();
+  
   or_sr(0x18);  // CPU off, GIE on
 } 

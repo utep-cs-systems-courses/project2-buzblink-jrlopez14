@@ -11,6 +11,5 @@
 void switch_init();
 void switch_interrupt_handler();
 
-extern char super_state, super_state_changed; /* effectively boolean */
 
 #endif // included

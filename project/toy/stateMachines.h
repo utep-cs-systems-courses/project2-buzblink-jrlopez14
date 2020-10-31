@@ -2,8 +2,11 @@
 #define stateMachine_included
 
 void state_advance();
-void super_state_advance();
-
-extern short state; 
+char toggle_red();
+char toggle_green();
+void up_state();
+void down_state();
+void buzzer_advance();
+void dimLights(char x);
 
 #endif // included
