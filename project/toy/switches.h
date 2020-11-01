@@ -11,5 +11,5 @@
 void switch_init();
 void switch_interrupt_handler();
 
-extern char super_state;
+extern char super_state; // Superstate of toy.
 #endif // included
