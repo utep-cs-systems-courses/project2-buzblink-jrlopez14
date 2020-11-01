@@ -2,8 +2,7 @@
 #include "stateMachines.h"
 #include "led.h"
 #include "buzzer.h"
-
-unsigned char super_state;
+#include "switches.h"
 
 static short freq = 500;
 static short state2_status = 1;
@@ -42,7 +41,7 @@ char toggle_red()
 char toggle_green()
 {
   char changed = 0;
-  if (super_state == 1 && red_on) {
+  if (red_on) {
     green_on ^= 1;
     buzzer_set_period(3000);
     changed = 1;

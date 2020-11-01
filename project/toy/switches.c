@@ -3,7 +3,7 @@
 #include "led.h"
 #include "stateMachines.h"
 
-unsigned char super_state = 2x;
+char super_state;
 
 static char 
 switch_update_interrupt_sense()
@@ -31,6 +31,13 @@ switch_interrupt_handler()
 {
   
   char p2val = switch_update_interrupt_sense();
-  super_state = 4;
-  state_advance();
+
+  if ( (p2val & SW1) == 0)
+    super_state = 1;
+  else if ( (p2val & SW2) == 0)
+    super_state = 2;
+  else if ( (p2val & SW3) == 0)
+    super_state = 3;
+  else if ( (p2val & SW4) == 0)
+    super_state = 4;
 }

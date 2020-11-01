@@ -1,6 +1,7 @@
 #include <msp430.h>
 #include "stateMachines.h"
-unsigned char super_state;
+
+char super_state = 0;
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   static char s1Count = 0;
@@ -19,7 +20,8 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
       s2Count = 0;
     }
   }
-  else if (super_state == 3){
+  else {
     state_advance();
   }
+  
 }

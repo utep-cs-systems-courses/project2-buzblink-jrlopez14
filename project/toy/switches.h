@@ -11,5 +11,5 @@
 void switch_init();
 void switch_interrupt_handler();
 
-
+extern char super_state;
 #endif // included
